@@ -1,3 +1,6 @@
+# Download SMAP L4 data from NASA EarthData.
+#
+# NOTE: This uses `box` (https://klmr.me/box/) for module management
 box::use(./utils/cmr)
 
 start_date <- "2018-01-01"

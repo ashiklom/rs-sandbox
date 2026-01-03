@@ -1,3 +1,9 @@
+#' Convert SMAP HDF5 file to terra raster
+#'
+#' @author Alexey Shiklomanov
+#' @param fname (character) Path to SMAP L4 HDF5 file
+#' @return List containing `raster` (the terra raster object) and `time` (the
+#' POSIXct timestep extracted from the HDF5 file).
 #' @export
 smap_raster <- function(fname) {
   box::use(hdf5r, terra) # nolint

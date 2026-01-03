@@ -1,5 +1,10 @@
+# Read SMAP L4 data, build a `stars` spatiotemporal data cube, crop to the
+# boundaries of CA, and plot.
+#
+# NOTE: This uses `box` (https://klmr.me/box/) for module management
 box::use(./utils/smap)
 
+# Shapefile for California boundary
 ca_shapefile <- "/mnt/c/Users/alexe/Downloads/pecan/ca_state/CA_State.shp"
 
 outdir <- "data-raw"
