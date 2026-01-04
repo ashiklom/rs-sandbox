@@ -42,7 +42,10 @@ search_granules <- function(collection_concept_id, ...) {
 tidy_links <- function(granule) {
   box::use(purrr) #nolint
   granule[["links"]] |>
-    purrr::keep(~ ("title" %in% names(.x))) |>
+    # NOTE: This check is inconsistent. Not all valid links have a `title`
+    # field (e.g., ICESat-2 ATL07 doesn't). So just return all links and let
+    # the users sort it out.
+    # purrr::keep(~ ("title" %in% names(.x))) |>
     purrr::map(tibble::as_tibble_row) |>
     purrr::list_rbind() |>
     dplyr::rename_with(~paste0("link_", .x))
@@ -85,7 +88,7 @@ tidy_granules <- function(resp) {
 #' @export
 download_parallel <- function(urls, outdir, skip_existing = TRUE) {
   cookie_jar <- tempfile("cookies-", fileext = ".txt")
-  dir.create(outdir, showWarnings = TRUE)
+  dir.create(outdir, showWarnings = FALSE)
   outfiles <- file.path(outdir, basename(urls))
   if (skip_existing) {
     file_exists <- file.exists(outfiles)

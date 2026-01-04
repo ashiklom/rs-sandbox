@@ -1,0 +1,5 @@
+short_name,concept_collection_id,description
+SMAP_L4,C3480440870-NSIDC_CPRD,SMAP L4 geophysical variables
+HLS_S2,C2021957295-LPCLOUD,Harmonized Landsat Sentinel-2 (HLS) - Sentinel-2
+HLS_Landsat,C2021957657-LPCLOUD,Harmonized Landsat Sentinel-2 - Landsat
+ICESat2_L3A,C3565574177-NSIDC_CPRD,ATLAS/ICESat-2 L3A Land and Vegetation Height
